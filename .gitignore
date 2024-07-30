@@ -2,3 +2,4 @@
 /node_modules
 /test_deleted.http
 /test_repost-of.http
+/.env
