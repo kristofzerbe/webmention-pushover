@@ -1,18 +1,25 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const pushover = require( 'pushover-notifications' )
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-// ---------------------------------------------------------------
 
 app.use(express.json());
 
 app.post('/webhook', (req, res) => {
-  // console.log(req.body);
 
   let msg;
+
+  if (req.body.secret !== process.env.WEBHOOK_SECRET) {
+    console.error("Webhook secret doesn't match");
+    res.status(401).send('Wrong Webhook secret');
+    return;
+  }
+
+  console.log("yeah");
 
   if (req.body.post) {
     let wmType, wmTypeVerb;
@@ -40,7 +47,20 @@ app.post('/webhook', (req, res) => {
 
   if (msg) {
     console.log("Pushover message: " + JSON.stringify(msg));
-    res.status(200).send('OK'); 
+
+    let push = new pushover( {
+      user: process.env['PUSHOVER_USER'],
+      token: process.env['PUSHOVER_TOKEN']
+    });
+
+    push.send(msg, function(error, result) {
+      if (error) {
+        console.error("Pushover failed: " + error)
+      }
+      console.log("Pushover send: " + result)
+    })
+
+    res.status(200).send('OK');
   } else {
     res.status(422).send('Unprocessable Content: Neither post or deleted webmention');
   }
