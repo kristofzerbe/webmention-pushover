@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const pushover = require( 'pushover-notifications' )
+const pushover = require('pushover-notifications')
 
 dotenv.config();
 
@@ -10,17 +10,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.post('/webhook', (req, res) => {
-
-  let msg;
+  console.log("Incoming Webhook ...");
 
   if (req.body.secret !== process.env.WEBHOOK_SECRET) {
     console.error("Webhook secret doesn't match");
     res.status(401).send('Wrong Webhook secret');
     return;
   }
-
-  console.log("yeah");
-
+  
+  let msg;
   if (req.body.post) {
     let wmType, wmTypeVerb;
     switch (req.body.post["wm-property"]) {
@@ -62,7 +60,8 @@ app.post('/webhook', (req, res) => {
 
     res.status(200).send('OK');
   } else {
-    res.status(422).send('Unprocessable Content: Neither post or deleted webmention');
+    console.error("Wrong content: " + JSON.stringify(req.body));
+    res.status(422).send("Unprocessable content: Neither post or deleted webmention");
   }
 
 });
