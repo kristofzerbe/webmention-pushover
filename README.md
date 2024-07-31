@@ -13,7 +13,7 @@ To get this run for you, you need to:
 | PORT | Every number between 1 and 65535<br>(Optional, Default 3000)  |
 | WEBHOOK_SECRET | webmention.io Webhook Secret you get here for your configured site:<br>https://webmention.io/settings/webhooks |
 | PUSHOVER_USER | Pushover User Key you get here:<br> https://pushover.net |
-| PUSHOVER_TOKEN | Pushover Application API Key you got here<br>https://pushover.net/apps/[your registered application] |
+| PUSHOVER_TOKEN | Pushover Application API Key you got here<br>https://pushover.net/apps/*your-registered-application* |
 
 1. Publish the Web Service on a hoster like [render.com](https://render.com/), [Azure App Services](https://azure.microsoft.com/services/app-service/) or the like
 
