@@ -15,9 +15,9 @@ To get this run for you, you need to:
 | PUSHOVER_USER | Pushover User Key you get here:<br> https://pushover.net |
 | PUSHOVER_TOKEN | Pushover Application API Key you got here<br>https://pushover.net/apps/&lt;you registered application&gt; |
 
-1. Publish the Web Service on a hoster like [render.com](https://render.com/), [Azure App Services](https://azure.microsoft.com/services/app-service/) or the like
+3. Publish the Web Service on a hoster like [render.com](https://render.com/), [Azure App Services](https://azure.microsoft.com/services/app-service/) or the like
 
-2. Await you first Pushover notification for an incoming Webmention for your site ...
+4. Await you first Pushover notification for an incoming Webmention for your site ...
 
 ---
 
