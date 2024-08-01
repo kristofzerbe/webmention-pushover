@@ -25,4 +25,4 @@ To get this run for you, you need to:
 
 An introductory article is online on [kiko.io](https://kiko.io) ...
 
-[![Push Over Webmentions](Push-Over-Webmentions.png)](https://kiko.io/)
+[![Push Over Webmentions](Push-Over-Webmentions.png)](https://kiko.io/post/Push-Over-Webmentions/)
